@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de quiz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <main class="quiz">
+
+        <div id="welcomescreenId" class="welcomescreen">
+             <h1 class="quiz__maintitle">JavaScript Quiz</h1>
+             <p class="quiz__maintitle">Evaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et gratuit.</p>
+             <label class="nom">Nom</label><br>
+             <input class="nom" id="nom__input" type="text" name="text1" /> <br>
+             <label class="nom">Email</label><br>
+             <input class="nom" id="welcomeemail" type="email"  placeholder="email" /> <br>
+             <button id="commencer__btn" class="quiz__btn">Commencer</button>
+        </div>
+        
+        <div id="questionscreenId" class="questionscreen">
+          <!--  <div class="question__title">quel est le type d'un fichier JavaScript?</div>
+            <div class="reponse1">Question 1/15</div>
+            <div class="div__paragraph">
+                <div class="reponse" >  <input type="radio" name="question" value="answer1"    id="reponse1" /> <label for="moins15">.ts</label></div><br />
+                <div class="reponse" >  <input type="radio" name="question" value="answer2"    id="reponse2" /> <label for="medium15-25">.jsX</label></div><br />
+                <div class="reponse" >  <input type="radio" name="question" value="answer3"      id="reponse3" /> <label for="medium25-40">.js</label></div><br />
+                <div class="reponse" >   <input type="radio" name="question" value="answer4"         id="reponse4" /> <label for="plus40">.j</label></div><br />
+            </div>
+           
+          <div class="div__button">
+            <button class="quitter__btn">Quitter</button>
+            <button class="suivant__btn">Suivant</button>
+         
+          </div>   -->
+        </div> 
+
+         <div id="resultscreen" class="div__result">
+
+            <p id="affiche__prenom" class="affiche__prenom">Joseph</p>
+            <p id="affiche__email" class="affiche__prenom">isaacmusuayi216@gmail.com</p>
+
+           
+            <p id="affiche__score" class="affiche__prenom">  <span id="nbcorrects">x</span>/<span id="nbquestions">x</span> </p>
+            <button class="acceuil__btn">Acceuil</button>
+         </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

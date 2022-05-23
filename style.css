@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+body{
+    background-color: #88E4C2;
+    
+}
+.quiz{
+  background-color: #FFFFFF;  
+  border: 4px solid #FFF;
+  padding: 20px;
+  max-width: 700px;
+  margin: 40px auto; 
+  box-sizing: border-box;
+  
+}
+
+.quiz__maintitle{
+    text-align: center;
+    padding: 0.75rem 3rem;
+    font-size: 30px;
+    color: #808080;
+    margin-top: 30px;
+}
+
+.nom{
+    width: 90%;
+    height: 50px;
+    margin-top: 20px;
+
+    
+}
+.nom:hover{
+    color: green;
+}
+.nom1 label{
+    margin-top: 40px;
+}
+.quiz__btn{
+    background-color: #028239;
+    color: #FFFFFF;
+    padding: 0.75rem 3rem;
+    text-align: center;
+    margin: 90px 40%; 
+    cursor: pointer;
+}
+.div__paragraph{
+    margin-top: 100px;
+}
+.reponse {
+    box-sizing: border-box;
+    border: 2px solid #DDDDDD;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding: 1rem 1rem;
+    margin: 10px auto;
+    cursor: pointer;
+
+}
+
+.quitter__btn{
+    background-color: #EC880C;
+    color: #FFFFFF;
+    padding: 0.75rem 3rem; 
+    text-align: center;
+    font-size: 20px;
+}
+.suivant__btn {
+    background-color: #02843A;
+    color: #FFFFFF;
+    padding: 0.75rem 3rem; 
+    text-align: center;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.question__title{
+    text-align: center;
+    padding: 0.75rem 3rem;
+    margin-top: 20px;
+    font-size: 35px;
+    color: #555555;
+}
+.div__button{
+    display: flex;
+    margin-top: 160px;
+    margin-left: 25%;
+}
+.div__paragraph input[type=radio]{
+    color: red;
+}
+.questionscreen{
+    display: none;
+}
+.div__result{
+    text-align: center;
+    padding: 0.75rem 3rem; 
+    display: none;
+}
+.affiche__prenom{
+    text-align: center;
+    padding: 1rem 1rem;
+    margin: 10px auto; 
+}
+#affiche__score{
+    color: 555555;
+    font-size: 20px;
+
+}
+#affiche__prenom{
+    color: #555555;
+    font-size: 50px;
+}
+#affiche__email{
+    color: #555555;
+    font-size: 30px;
+}
+.acceuil__btn{
+    background-color: #0880D6;
+    color: #FFFFFF;
+    padding: 0.75rem 3rem; 
+    text-align: center;
+    font-size: 20px;
+    margin-left: 20px;  
+}
+.hidden {
+    display: none;
+}
+
+input:checked{
+  accent-color: green;
+}
+
+.br-green {
+    border-color: green;
+}
