@@ -11,14 +11,20 @@
 <body>
     <main class="quiz">
 
-        <div id="welcomescreenId" class="welcomescreen">
+        <div id="welcomescreenId">
              <h1 class="quiz__maintitle">JavaScript Quiz</h1>
              <p class="quiz__maintitle">Evaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et gratuit.</p>
-             <label class="nom">Nom</label><br>
-             <input class="nom" id="nom__input" type="text" name="text1" /> <br>
-             <label class="nom">Email</label><br>
-             <input class="nom" id="welcomeemail" type="email"  placeholder="email" /> <br>
-             <button id="commencer__btn" class="quiz__btn">Commencer</button>
+             <div class="nomInput">
+                <label for="nom__input">Nom</label><br>
+                <input id="nom__input" type="text" name="text1" /><br>
+             </div>
+             <div class="emailInut">
+                <label for="welcomeemail">E-mail</label><br>
+                <input id="welcomeemail" type="email"  placeholder="email" /><br>
+             </div>
+             <div>
+                <button id="commencer__btn" class="quiz__btn">Commencer</button>
+             </div>
         </div>
         
         <div id="questionscreenId" class="questionscreen">
@@ -40,12 +46,13 @@
 
          <div id="resultscreen" class="div__result">
 
-            <p id="affiche__prenom" class="affiche__prenom">Joseph</p>
-            <p id="affiche__email" class="affiche__prenom">isaacmusuayi216@gmail.com</p>
-
+           <!-- <p id="affiche__prenom" class="affiche__prenom">Joseph</p>
+            <p id="affiche__email" class="affiche__prenom">isaacmusuayi216@gmail.com</p>-->
+           <!--  <img src="crochet.png">
+             <img src="echec.png"> -->
            
-            <p id="affiche__score" class="affiche__prenom">  <span id="nbcorrects">x</span>/<span id="nbquestions">x</span> </p>
-            <button class="acceuil__btn">Acceuil</button>
+            <p class="affiche__prenom">  <span id="nbcorrects">x</span> / <span id="nbquestions">x</span> </p>
+            <button id="acceuil__btnId" class="acceuil__btn">Acceuil</button>
          </div>
     </main>
 

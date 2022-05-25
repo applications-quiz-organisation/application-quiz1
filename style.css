@@ -20,19 +20,51 @@ body{
 .quiz__maintitle{
     text-align: center;
     padding: 0.75rem 3rem;
-    font-size: 30px;
+    font-size: 16px;
     color: #808080;
     margin-top: 30px;
 }
 
-.nom{
+.nom1{
     width: 90%;
     height: 50px;
-    margin-top: 20px;
-
-    
+    padding-bottom: 20px;
+    /* margin-top: 20px; */
 }
-.nom:hover{
+.lab2{
+    padding-bottom: 300px;
+}
+/* ####################################### */
+.nomInput{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.nomInput input{
+    width: 100%;
+    height: 35px;
+    margin-top: 4px;
+    padding: 0 10px;
+}
+.emailInut input{
+    width: 100%;
+    height: 35px;
+    margin-top: 4px;
+}
+
+
+
+/* ##########################################"" */
+
+.nom2{
+    width: 90%;
+    height: 50px;
+    padding-bottom: 40px;
+    /* margin-top: 20px; */ 
+}
+.nom1:hover{
+    color: green;
+}
+.nom2:hover{
     color: green;
 }
 .nom1 label{
@@ -134,4 +166,8 @@ input:checked{
 
 .br-green {
     border-color: green;
+}
+
+.suivant__btn:disabled {
+    background-color: rgba(128, 128, 128, 0.486);
 }
