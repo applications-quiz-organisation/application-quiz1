@@ -11,6 +11,11 @@ emailAffiche.classList.add('affiche__prenom');
 emailAffiche.classList.add('#affiche__email');
 let imageReussite = document.createElement('img');
 let imageEchec = document.createElement('img');
+let counter = document.createElement('div');
+let divProgress = document.createElement('div');
+divProgress.classList.add('progress');
+let divprogressInner = document.createElement('div');
+divprogressInner.classList.add('progress-inner');
 
 
 
@@ -58,12 +63,16 @@ function Question(title, answers, answerCorrect) {
         let questionTitle = document.createElement("div");
         questionTitle.classList.add('question__title');
         questionTitle.textContent = this.title;
+        let divCounter = document.createElement('div');
+        divCounter.classList.add('counterClass');
         let questionEvolution = document.createElement('div');
         questionEvolution.textContent = "Question" + indexQuestion + "/" + nbQuestions;
+        
 
 
         let divAnswer = document.createElement("div");
         divAnswer.classList.add('div__paragraph');
+        counter.textContent = 60;
 
         let buttonSuivant = document.createElement('button');
         buttonSuivant.classList.add('suivant__btn');
@@ -81,6 +90,7 @@ function Question(title, answers, answerCorrect) {
             radioInput.setAttribute('name', id)
             radioInput.id = index + 1;
             let label = document.createElement('label');
+            
             label.textContent = answer;
 
             radioInput.addEventListener("change", function (event) {
@@ -98,8 +108,9 @@ function Question(title, answers, answerCorrect) {
             divImput.append(radioInput);
             divImput.append(label);
             divImput.addEventListener("click", this.checkAnswer)
-
+ 
             divAnswer.append(divImput);
+            console.log(divAnswer)
         })
 
         let divbutton = document.createElement('div');
@@ -117,7 +128,7 @@ function Question(title, answers, answerCorrect) {
         buttonSuivant.addEventListener("click", () => {
             screenquestion.textContent = '';
             quiz.indexCurrentQuestion++;
-            quiz.showCurrentQuestion();
+            validation();
 
 
 
@@ -146,7 +157,10 @@ function Question(title, answers, answerCorrect) {
             screenResult.prepend(nomAffiche);
         })
 
-
+         
+        divCounter.append( questionEvolution);
+        divCounter.append(counter);
+        divProgress.append(divprogressInner);
 
         divbutton.append(buttonQuitter);
         divbutton.append(buttonSuivant);
@@ -154,7 +168,8 @@ function Question(title, answers, answerCorrect) {
 
 
         screenquestion.append(questionTitle);
-        screenquestion.append(questionEvolution);
+        screenquestion.append(divCounter);
+        screenquestion.append(divProgress);
         screenquestion.append(divAnswer);
         screenquestion.append(divbutton);
 
@@ -213,11 +228,9 @@ function seeFirstQuestion() {
 
     screenquestion.style.display = "block";
 
-    let position = email.value.indexOf('@gmail.com')
-    let name = nom.value
-    if ((nom.value == "")||(name.length <= 3)||(email.value == "")) {}
+  
 
-
+        
         quiz.showCurrentQuestion();
 }
 
@@ -230,9 +243,9 @@ function seeAcceuil() {
 
 
 let welcomebtn = document.getElementById('commencer__btn');
-welcomebtn.addEventListener("click", seeFirstQuestion);
+welcomebtn.addEventListener("click", validation);
 let buttonAcceuil = document.getElementById('acceuil__btnId');
-buttonAcceuil.addEventListener("click", seeAcceuil);
+buttonAcceuil.addEventListener("click", seeAcceuil, );
 
 
 const setError = (element, message) => {
@@ -256,28 +269,58 @@ const setSuccess = element => {
 }
 
 
-const isValidEmail = email => {
 
-    const re = /^(([^<>()[\]\\.,;:\S@"]+(\.[^<>()[\]\\.,;:\S@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLocaleLowerCase()); 
+
+
+
+function progressBar () {
+
+    counter = 60;
+    let countDown = setInterval(() => {
+        counter--;
+        
+        let progressWidth = counter/10*100;
+
+        if(counter > 0) {
+
+            divprogressInner.style.width = progressWidth + "%";
+            let spanTime;
+            spanTime.innerHTML = counter+"s"
+            
+        } else {
+            clearInterval(countDown)
+            divprogressInner.style.width = "0%";
+            spanTime.innerHTML = "Game over";
+        }
+    })
 }
 
 
-const validateInputs = () => {
 
-    const usernameValue = prenom.value.trim();
-    const emailValue = email.value.trim();
-    if(usernameValue==="") {
-      setError(username, "N'oublie pas de renseigner ce champs");
-    } else {
-        setSuccess(username);
-    }
-    if(emailValue === '') {
-        setError(email, "N'oublie pas de renseigner ce champs");
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'veuillez entrer une adresse mail valide');
+function validation () {
+    
+    let forgetNom = document.querySelector(".prenomClass");
+    let forgetEmail = document.querySelector(".emailClass");
+    let masque = /\s/g; 
+    let masqueEmail = /@gmail.com$/;
 
-    } else {
-        setSuccess(email);
+    if (masque.test(prenom.value) || !(masqueEmail.test(email.value)) || email.value=="" || prenom.value=="") {
+
+        if (masque.test(prenom.value) || prenom.value=="") {
+            forgetNom.style.display="block";
+           // forgetNom.textContent="Pas de caractères blancs";  
+        }
+    
+        if (!(masqueEmail.test(email.value)) || email.value=="") {
+            forgetEmail.style.display="block";
+            
+        }          
     }
+    else {
+     seeFirstQuestion();
+    } 
+    
 }
+
+
+
