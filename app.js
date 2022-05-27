@@ -12,6 +12,7 @@ emailAffiche.classList.add('#affiche__email');
 let imageReussite = document.createElement('img');
 let imageEchec = document.createElement('img');
 let counter = document.createElement('div');
+counter.classList.add('time');
 let divProgress = document.createElement('div');
 divProgress.classList.add('progress');
 let divprogressInner = document.createElement('div');
@@ -89,6 +90,7 @@ function Question(title, answers, answerCorrect) {
             radioInput.setAttribute('type', 'radio');
             radioInput.setAttribute('name', id)
             radioInput.id = index + 1;
+            radioInput.classList.add('radioInputClass')
             let label = document.createElement('label');
             
             label.textContent = answer;
@@ -125,37 +127,7 @@ function Question(title, answers, answerCorrect) {
 
 
 
-        buttonSuivant.addEventListener("click", () => {
-            screenquestion.textContent = '';
-            quiz.indexCurrentQuestion++;
-            validation();
-
-
-
-
-            nomAffiche.textContent = prenom.value;
-            emailAffiche.textContent = email.value;
-
-            if (quiz.indexCurrentQuestion == quiz.questions.length) {
-                ("Cheking...");
-                if (quiz.nbcorrects / quiz.questions.length >= 0.5) {
-                    console.log("Success");
-                    imageReussite.src = "crochet.png";
-                    screenResult.prepend(imageReussite);
-                }
-                else {
-                    console.log("Fail");
-                    imageEchec.src = "echec.png";
-                    screenResult.prepend(imageEchec);
-                }
-            }
-            console.log
-
-
-
-            screenResult.prepend(emailAffiche);
-            screenResult.prepend(nomAffiche);
-        })
+        buttonSuivant.addEventListener("click", questionSuivante);
 
          
         divCounter.append( questionEvolution);
@@ -214,7 +186,7 @@ let question3 = new Question('quel est le type de fichier', ["1", "3", "4", "6"]
 quiz.addQuestion(question3);
 let question4 = new Question('quel est ton age', ["20ans", "30ans", "40ans", "55ans"], 4);
 quiz.addQuestion(question4);
-
+let currentSetInterval = null;
 
 
 let elNbquestion = document.getElementById('nbquestions');
@@ -245,7 +217,7 @@ function seeAcceuil() {
 let welcomebtn = document.getElementById('commencer__btn');
 welcomebtn.addEventListener("click", validation);
 let buttonAcceuil = document.getElementById('acceuil__btnId');
-buttonAcceuil.addEventListener("click", seeAcceuil, );
+buttonAcceuil.addEventListener("click", seeAcceuil );
 
 
 const setError = (element, message) => {
@@ -275,25 +247,64 @@ const setSuccess = element => {
 
 function progressBar () {
 
-    counter = 60;
-    let countDown = setInterval(() => {
-        counter--;
+    let interval = 10;
+    if (currentSetInterval) {
+        clearInterval(currentSetInterval);
+    }
+    currentSetInterval = setInterval(() => {
+        interval--;
         
-        let progressWidth = counter/10*100;
+        let progressWidth = interval/10*100;
 
-        if(counter > 0) {
+        if(interval > 0) {
 
             divprogressInner.style.width = progressWidth + "%";
-            let spanTime;
-            spanTime.innerHTML = counter+"s"
+            counter.innerHTML = interval+"s"
             
         } else {
-            clearInterval(countDown)
+            clearInterval(currentSetInterval)
             divprogressInner.style.width = "0%";
-            spanTime.innerHTML = "Game over";
+            questionSuivante ();
+            
         }
-    })
+    }, 1000);
+
 }
+
+function questionSuivante () {
+
+    screenquestion.textContent = '';
+    quiz.indexCurrentQuestion++;
+    validation();
+   
+  
+   
+   
+    
+    nomAffiche.textContent = prenom.value;
+    emailAffiche.textContent = email.value;
+
+    if (quiz.indexCurrentQuestion == quiz.questions.length) {
+        ("Cheking...");
+        if (quiz.nbcorrects / quiz.questions.length >= 0.5) {
+            console.log("Success");
+            imageReussite.src = "crochet.png";
+            screenResult.prepend(imageReussite);
+        }
+        else {
+            console.log("Fail");
+            imageEchec.src = "echec.png";
+            screenResult.prepend(imageEchec);
+        }
+    }
+    console.log
+
+
+
+    screenResult.prepend(emailAffiche);
+    screenResult.prepend(nomAffiche);
+}
+
 
 
 
@@ -318,6 +329,9 @@ function validation () {
     }
     else {
      seeFirstQuestion();
+
+     
+     progressBar ();
     } 
     
 }
