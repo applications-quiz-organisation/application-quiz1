@@ -8,9 +8,12 @@ nomAffiche.classList.add('affiche__prenom');
 nomAffiche.classList.add('#affiche__prenom');
 let emailAffiche = document.createElement('h2');
 emailAffiche.classList.add('affiche__prenom');
+emailAffiche.classList.add('affiche__emails');
 emailAffiche.classList.add('#affiche__email');
 let imageReussite = document.createElement('img');
+imageReussite.classList.add('classImage')
 let imageEchec = document.createElement('img');
+imageEchec.classList.add('classImage')
 let counter = document.createElement('div');
 counter.classList.add('time');
 let divProgress = document.createElement('div');
@@ -178,14 +181,38 @@ function Question(title, answers, answerCorrect) {
 }
 
 let quiz = new Quiz();
-let question1 = new Question("quel est le type d'un fichier JavaScript?", [".ts", ".jsX", ".js", ".j"], 3);
+let question1 = new Question("quel est le type d'un fichier JavaScript? JavaScript? ", [".ts", ".jsX", ".js", ".j"], 3);
 quiz.addQuestion(question1);
-let question2 = new Question("comment je m'appelle", [".isaac", "jean", "heritier", "jeremie"], 1);
+let question2 = new Question("Comment pouvez-vous écrire Hello W3docs avec alerte?", [".alertBox('Hello W3docs');", "alert('Hello W3docs')", "msg('Hello W3docs');", "msgBox('Hello W3docs')"], 2);
 quiz.addQuestion(question2);
-let question3 = new Question('quel est le type de fichier', ["1", "3", "4", "6"], 2);
+let question3 = new Question('Comment appeler la fonction myFunction en JavaScript?', ["call function myFunction(...)", "funcall myFunction(...)", "myFunction(...)", "call myFunction(...)"], 3);
 quiz.addQuestion(question3);
-let question4 = new Question('quel est ton age', ["20ans", "30ans", "40ans", "55ans"], 4);
+let question4 = new Question('Comment utiliser "While" en Javascript ?', ["(while ...){...}", "while ... ...", "while(...){...}", "do while (...) {...} then {...}"], 3);
 quiz.addQuestion(question4);
+let question5 = new Question("Quel est le moyen correct d'utiliser un commentaire en Javascript ?", ["{# ... #}", "<!--- .... ---!>", "// ....", "\\ ..."], 3);
+quiz.addQuestion(question5);
+let question6 = new Question("Quel est le moyen correct de déclarer un tableau en Javascript?", ["var names = ['Argishti', 'Hayk', 'Vardan']", "var names = array('Argishti', 'Hayk', 'Vardan')", "var name = 'Argishti', 'Hayk', 'Vardan'", "var names = [0]=>'Argishti', [1]=>'Hayk',[2]=> 'Vardan"], 1);
+quiz.addQuestion(question6);
+let question7 = new Question("Comment trouver le max de x et y?", ["ceil(x, y)", "max(x, y)", "top(x, y)", "Math.max(x, y)"], 4);
+quiz.addQuestion(question7);
+let question8 = new Question("Est-ce que JavaScript est le même que Java?", ["Oui", "non"], 2);
+quiz.addQuestion(question8);
+let question9 = new Question("Comment détecter le nom du navigateur du client?", ["navigator.appName", "navigator.browserName", "browser.name"], 2);
+quiz.addQuestion(question9);
+let question10 = new Question("Comment modifier n’importe quoi dans n’importe quel tableau de n’importe quelle base des données avec Javascript ?", ["modify [dbName].[TableName] ...", "change [dbName].[TableName] ...", "pas moyen", "ABR"], 2);
+quiz.addQuestion(question10);
+let question11 = new Question("Comment déclarer une nouvelle date en JavaScript?", ["var date = Date()", "var date = date('now')", "var date = new Date()", "var date = date().current()"], 3);
+quiz.addQuestion(question11);
+let question12 = new Question("Quel est correct?", ["i =+ 1", "i += 1", "i = i++1", "+i+"], 2);
+quiz.addQuestion(question12);
+let question13 = new Question("On peut définir n'importe quel style à la balise html avec Javascript.", ["oui", "non"], 1);
+quiz.addQuestion(question13);
+let question14 = new Question("Comment déclarer un objet avec Javascript?", ["var variable = new Object()", "var variable = Object()", "var variable = {}", "var variable = new myFunction()"], 1);
+quiz.addQuestion(question14);
+let question15 = new Question("Où mettons-nous notre javascript?", ["Dans <head>", "Dans <html>", "Dans <body>", "Dans <img/>"], 3);
+quiz.addQuestion(question15);
+
+
 let currentSetInterval = null;
 
 
@@ -247,14 +274,14 @@ const setSuccess = element => {
 
 function progressBar () {
 
-    let interval = 10;
+    let interval = 60;
     if (currentSetInterval) {
         clearInterval(currentSetInterval);
     }
     currentSetInterval = setInterval(() => {
         interval--;
         
-        let progressWidth = interval/10*100;
+        let progressWidth = interval/60*100;
 
         if(interval > 0) {
 

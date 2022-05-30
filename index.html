@@ -9,54 +9,33 @@
 
 </head>
 <body>
-    <main class="quiz">
-
-        <div id="welcomescreenId">
-             <h1 class="quiz__maintitleh">JavaScript Quiz</h1>
-             <p class="quiz__maintitlep">Evaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et gratuit.</p>
-             <div class="nomInput">
-                <label for="nom__input">Nom</label><br>
-                <input id="nom__input" type="text" name="text1" /><br>
-                <div class="prenomClass"> inserrez votre nom</div>
-             </div>
-             <div class="emailInut">
-                <label for="welcomeemail">E-mail</label><br>
-                <input id="welcomeemail" type="email"  placeholder="      email" /><br>
-                <div class="emailClass">inserrez votre email</div>
-             </div>
-             <div>
-                <button id="commencer__btn" class="quiz__btn">Commencer</button>
-             </div>
-        </div>
-        
-        <div id="questionscreenId" class="questionscreen">
-          <!--  <div class="question__title">quel est le type d'un fichier JavaScript?</div>
-            <div class="reponse1">Question 1/15</div>
-            <div class="div__paragraph">
-                <div class="reponse" >  <input type="radio" name="question" value="answer1"    id="reponse1" /> <label for="moins15">.ts</label></div><br />
-                <div class="reponse" >  <input type="radio" name="question" value="answer2"    id="reponse2" /> <label for="medium15-25">.jsX</label></div><br />
-                <div class="reponse" >  <input type="radio" name="question" value="answer3"      id="reponse3" /> <label for="medium25-40">.js</label></div><br />
-                <div class="reponse" >   <input type="radio" name="question" value="answer4"         id="reponse4" /> <label for="plus40">.j</label></div><br />
+   <div class="container">
+        <div class="quiz">
+            <div id="welcomescreenId">
+                <h1 class="quiz__maintitleh">JavaScript Quiz</h1>
+                <p class="quiz__maintitlep">Evaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et gratuit.</p>
+                <div class="nomInput">
+                    <label for="nom__input">Nom</label><br>
+                    <input id="nom__input" type="text" name="text1" /><br>
+                    <div class="prenomClass"> inserrez votre nom</div>
+                </div>
+                <div class="emailInut">
+                    <label for="welcomeemail">E-mail</label><br>
+                    <input id="welcomeemail" type="email"  placeholder="" /><br>
+                    <div class="emailClass"> votre email</div>
+                </div>
+                <div class="divButton">
+                    <button id="commencer__btn" class="quiz__btn">Commencer</button>
+                </div>
             </div>
-           
-          <div class="div__button">
-            <button class="quitter__btn">Quitter</button>
-            <button class="suivant__btn">Suivant</button>
-         
-          </div>   -->
-        </div> 
-
-         <div id="resultscreen" class="div__result">
-
-           <!-- <p id="affiche__prenom" class="affiche__prenom">Joseph</p>
-            <p id="affiche__email" class="affiche__prenom">isaacmusuayi216@gmail.com</p>-->
-           <!--  <img src="crochet.png">
-             <img src="echec.png"> -->
-           
-            <p class="affiche__prenom">  <span id="nbcorrects">x</span> / <span id="nbquestions">x</span> </p>
-            <button id="acceuil__btnId" class="acceuil__btn">Acceuil</button>
-         </div>
-    </main>
+            <div id="questionscreenId" class="questionscreen">
+            </div> 
+            <div id="resultscreen" class="div__result">
+                <p class="affiche__prenom" >  <span id="nbcorrects">x</span> / <span id="nbquestions">x</span> </p>
+                <button id="acceuil__btnId" class="acceuil__btn">Acceuil</button>
+            </div>
+        </div>
+   </div>
 
     <script src="app.js"></script>
 </body>
