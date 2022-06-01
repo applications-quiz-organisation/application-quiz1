@@ -172,7 +172,7 @@ body{
 .div__paragraph input[type=radio]{
     color: red;
 }
-.questionscreen{
+#questionscreenId{
     display: none;
 }
 .div__result{

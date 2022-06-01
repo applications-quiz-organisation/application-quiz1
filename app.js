@@ -123,12 +123,7 @@ function Question(title, answers, answerCorrect) {
         let buttonQuitter = document.createElement('button');
         buttonQuitter.classList.add('quitter__btn');
         buttonQuitter.textContent = "Quitter";
-        buttonQuitter.addEventListener('click', function () {
-            close();
-        })
-
-
-
+        buttonQuitter.addEventListener('click', quitterB)
 
         buttonSuivant.addEventListener("click", questionSuivante);
 
@@ -139,8 +134,6 @@ function Question(title, answers, answerCorrect) {
 
         divbutton.append(buttonQuitter);
         divbutton.append(buttonSuivant);
-
-
 
         screenquestion.append(questionTitle);
         screenquestion.append(divCounter);
@@ -187,7 +180,7 @@ let question2 = new Question("Comment pouvez-vous écrire Hello W3docs avec aler
 quiz.addQuestion(question2);
 let question3 = new Question('Comment appeler la fonction myFunction en JavaScript?', ["call function myFunction(...)", "funcall myFunction(...)", "myFunction(...)", "call myFunction(...)"], 3);
 quiz.addQuestion(question3);
-let question4 = new Question('Comment utiliser "While" en Javascript ?', ["(while ...){...}", "while ... ...", "while(...){...}", "do while (...) {...} then {...}"], 3);
+/*let question4 = new Question('Comment utiliser "While" en Javascript ?', ["(while ...){...}", "while ... ...", "while(...){...}", "do while (...) {...} then {...}"], 3);
 quiz.addQuestion(question4);
 let question5 = new Question("Quel est le moyen correct d'utiliser un commentaire en Javascript ?", ["{# ... #}", "<!--- .... ---!>", "// ....", "\\ ..."], 3);
 quiz.addQuestion(question5);
@@ -210,7 +203,7 @@ quiz.addQuestion(question13);
 let question14 = new Question("Comment déclarer un objet avec Javascript?", ["var variable = new Object()", "var variable = Object()", "var variable = {}", "var variable = new myFunction()"], 1);
 quiz.addQuestion(question14);
 let question15 = new Question("Où mettons-nous notre javascript?", ["Dans <head>", "Dans <html>", "Dans <body>", "Dans <img/>"], 3);
-quiz.addQuestion(question15);
+quiz.addQuestion(question15); */
 
 
 let currentSetInterval = null;
@@ -365,3 +358,30 @@ function validation () {
 
 
 
+function quitterB ()   {
+   
+    screenquestion.textContent = '';
+    screenquestion.classList.add("hidden");
+    let elNbCorrects = document.getElementById("nbcorrects");
+    elNbCorrects.textContent = quiz.nbcorrects;
+    screenResult.style.display = "block";
+
+    nomAffiche.textContent = prenom.value;
+    emailAffiche.textContent = email.value;
+
+    
+        if (quiz.nbcorrects / quiz.questions.length >= 0.5) {
+            console.log("Success");
+            imageReussite.src = "crochet.png";
+            screenResult.prepend(imageReussite);
+        }
+        else {
+            console.log("Fail");
+            imageEchec.src = "echec.png";
+            screenResult.prepend(imageEchec);
+        }
+
+    screenResult.prepend(emailAffiche);
+    screenResult.prepend(nomAffiche);
+
+}
